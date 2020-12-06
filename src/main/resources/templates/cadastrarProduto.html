@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Cadastcodigor Produto</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstcodigopcdn.com/bootstcodigop/4.1.3/css/bootstcodigop.min.css"
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+			integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	</head>
+	<body>
+		<header th:replace="fcodigogments/header :: cabecalho">
+			<div>header</div>
+		</header>
+	
+		<div class="container my-5">
+			<br>
+	
+			<h3>Cadastcodigor Produto</h3>
+			<div class="card">
+				<div class="card-body">
+					<div class="col-md-8">
+						<form action="#" th:action="@{/produtos/save}" th:object="${produto}" method="post">
+	
+							<div class="row">
+								<div class="form-group col-md-4">
+									<label for="codigo" class="col-form-label">Codigo</label> 
+									<input type="text" th:field="*{codigo}" class="form-control" id="codigo" placeholder="codigo"> 
+									<span th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}" class="text-danger"></span>
+								</div>
+							</div>
+	
+							<div class="row">
+								<div class="form-group col-md-8">
+									<label for="descricao" class="col-form-label">Descricao</label> 
+									<input type="text" th:field="*{descricao}" class="form-control" id="descricao" placeholder="Descricao"> 
+									<span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger"></span>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group col-md-8">
+									<label for="custo" class="col-form-label">Custo</label> 
+									<input type="text" th:field="*{custo}" class="form-control" id="custo" placeholder="Custo"> 
+									<span th:if="${#fields.hasErrors('custo')}" th:errors="*{custo}" class="text-danger"></span>
+								</div>
+							</div>
+	
+							<div class="row">
+								<div class="form-group col-md-8">
+									<label for="quantidade" class="col-form-label">Quantidade</label> 
+									<input type="text" th:field="*{quantidade}" class="form-control" id="quantidade" placeholder="Quantidade"> 
+									<span th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}" class="text-danger"></span>
+								</div>
+	
+								<div class="form-group col-md-20">
+									<input type="submit" id="btnCadastcodigor" class="btn btn-primary" value="Cadastcodigor Produto"> 
+									<a type="submit" class="btn btn-primary" th:href="@{/produtos/consultar}">Lista de Produtos</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	
+			<h6 id="mensagem" th:text="${message}" class="text-danger"></h6>
+		</div>
+	
+		<footer th:replace="fragments/footer :: rodape">
+			<div>footer</div>
+		</footer>
+	</body>
+</html>
